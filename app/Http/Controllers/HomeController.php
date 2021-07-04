@@ -14,10 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-    
-        $ads = Ad::all();
-        return $ads->makeHidden(['description'])->toArray();
-    
+        return Ad::simplePaginate(10);
     }
 
     /**
@@ -49,7 +46,8 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        $ad_detail = Ad::find($id);
+        dd($ad_detail->id);
     }
 
     /**
