@@ -14,8 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+    
         $ads = Ad::all();
-        dd($ads);
+        return $ads->makeHidden(['description'])->toArray();
+    
     }
 
     /**

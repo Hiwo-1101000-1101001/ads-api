@@ -14,6 +14,9 @@ class Ad extends Model
         'price',
         'description'
     ];
+
+    
+    
     protected $casts = [
         'images' => 'array',
     ];
