@@ -35,18 +35,25 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        // валидация результата
         $validated = $request->validate([
             'name' => 'required|max:255',
             'price' => 'required',
         ]);
-
+        
+        // Создаем объявление
         $ad = new Ad();
-        $ad->name = $request->get('name');
-        $ad->images = $request->json('images'); // TODO: разобраться с этим!
-        $ad->price = $request->get('price');
-        $ad->description = $request->get('description');
-        $ad->save();
 
+        $ad->name = request('name');
+
+        $ad->images = json_decode($request->images, true);
+        $ad->price = request('price');
+        $ad->description = request('description');
+        
+        // Сохроняем это все
+        $ad->save();
+        
+        // Делаем редирект на страницу со всеми объявлениями
         return redirect("api/ads");
     }
 
@@ -58,8 +65,8 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        $ad_detail = Ad::find($id);
-        dd($ad_detail->id);
+        // ищет объявление с id "$id"    
+        return Ad::find($id);
     }
 
     /**
