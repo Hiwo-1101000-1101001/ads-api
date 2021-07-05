@@ -1,0 +1,32 @@
+.card__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+    .card {
+        border: 1px solid rgb(238, 238, 238);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s;
+        &:hover {
+            border: 1px solid rgb(245, 245, 245);
+            box-shadow: 0px 15px 20px rgba(144, 139, 155, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        &__image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        &__body {
+            padding: 0px 10px 15px 10px;
+        }
+        &__title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+}

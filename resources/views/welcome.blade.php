@@ -23,7 +23,8 @@
     </head>
     <body class="antialiased">
         <div id="app">
-            <example-component></example-component>
+            <v-header></v-header>
+            <v-content></v-content>
         </div>
         <script src="js/App.js"></script>
     </body>
