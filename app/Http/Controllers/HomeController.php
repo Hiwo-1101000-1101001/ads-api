@@ -35,7 +35,19 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required',
+        ]);
+
+        $ad = new Ad();
+        $ad->name = $request->get('name');
+        $ad->images = $request->json('images'); // TODO: разобраться с этим!
+        $ad->price = $request->get('price');
+        $ad->description = $request->get('description');
+        $ad->save();
+
+        return redirect("api/ads");
     }
 
     /**
