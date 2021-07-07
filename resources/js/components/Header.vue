@@ -1,10 +1,9 @@
-// TODO: сделать категории
 
 <template>
     <header class="header">
         <div class="wrapper">
             <div class="logo">
-                {{ brand_name }}
+                <router-link :to="{name: 'main' }">{{ brand_name }}</router-link>
             </div>
             <nav class="header-nav">
                 <ul>
@@ -36,4 +35,3 @@
         }
     }
 </script>
-
