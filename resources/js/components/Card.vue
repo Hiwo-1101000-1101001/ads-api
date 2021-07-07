@@ -1,19 +1,23 @@
 <template>
-    <div class="card__items">
-        <div class="card" v-for="card in cards" :key="card.id">
-            <img class="card__image" :src="card.images[0].image" :alt="card.title">
+
+    <a :href='"ads/" + card.id'>
+        <div class="card">
+            <img class="card__image" :src="card.images[0].image" :alt="card.name">
             <div class="card__body">
-                <span class="card__title">{{ card.title }}</span>
-                <br>
+                <h3 class="card__title">{{ card.name }}</h3>
                 <span class="card__price">{{ card.price }} руб</span>
             </div>
         </div>
-    </div>
+    </a>
 </template>
 
 <script>
     import "../../assets/scss/card.scss";
     export default {
-        props: ["cards"], 
+        props: {
+            card:  {
+                type: Object,
+            }
+        }
     }
 </script>

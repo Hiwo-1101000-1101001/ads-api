@@ -24,8 +24,8 @@
     <body class="antialiased">
         <div id="app">
             <v-header></v-header>
-            <v-content></v-content>
+            <router-view></router-view>
         </div>
-        <script src="js/App.js"></script>
+        <script src="/js/App.js"></script>
     </body>
 </html>
